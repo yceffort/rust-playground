@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+  </head>
+  <body>    
+    <!-- wasm 모듈은 es6 모듈이다. -->
+    <script type="module">      
+      // default export 인 init을 최초에 사용하여 초기화를 해야 한다.
+      import init, { add } from './pkg/without_bundler.js';
+
+      async function run() {
+       
+        // 이 init 안에 직접 로드할 wasm 파일 경로를 지정할 수 있다.
+        // 지정하지 않는다면 기본값이 세팅된다.
+        // 또한 문자열 대신에, WebAssembly.Module, ArrayBuffer, Response, Promise (fetch 결과물) 을 넣을 수도 있따.
+        await init();
+
+        // 그 다음에 우리가 정의한 내용을 쓸 수 있다.
+        const result = add(1, 2);
+        console.log(`1 + 2 = ${result}`);
+        if (result !== 3)
+          throw new Error("wasm addition doesn't work!");
+      }
+
+      run();
+    </script>
+  </body>
+</html>
