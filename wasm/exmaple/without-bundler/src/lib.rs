@@ -6,11 +6,14 @@ pub fn main() {
     let document = window.document().expect("there is no document in window");
     let body = document.body().expect("there is no body in a document");
 
-    let p_element = document.create_element("p").expect("fail to create P element");
-    
+    let p_element = document
+        .create_element("p")
+        .expect("fail to create P element");
+
     p_element.set_inner_html("Hello from rust");
 
-    body.append_child(&p_element).expect("fail to append element");
+    body.append_child(&p_element)
+        .expect("fail to append element");
 }
 
 #[wasm_bindgen]

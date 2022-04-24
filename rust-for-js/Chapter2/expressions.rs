@@ -34,7 +34,7 @@ fn main() {
     println!("Hello, {}", generation);
 
     // 한무 루프 돔
-    // loop는 while과 동일하다고 보면 됨
+    // loop는 while (true) 와 동일하다고 보면 됨
     // loop {
     //   println!("infinite!")
     // }
@@ -47,5 +47,11 @@ fn main() {
         if counter == 10 {
             break;
         }
+    }
+
+    let mut counter2 = 0;
+    while counter <= 10 {
+        counter = counter + 1;
+        println!("while {counter}");
     }
 }
