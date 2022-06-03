@@ -1,10 +1,10 @@
 // 라이브러리 불러오기
-use std::io;
-use std::cmp::Ordering;
 use rand::Rng;
+use std::cmp::Ordering;
+use std::io;
 
 fn main() {
-    println!("숫자를 맞혀봅시다!");    
+    println!("숫자를 맞혀봅시다!");
 
     let secret_number = rand::thread_rng().gen_range(0..=100);
 
@@ -13,7 +13,7 @@ fn main() {
     loop {
         println!("정답이라고 생각하는 숫자를 적어주세요.");
 
-        // 변수 선언. 
+        // 변수 선언.
         // mut이 있다는 것은 가변 변수를 의미
         // utf-8 형식의 문자열 선언
         let mut guess = String::new();
@@ -21,7 +21,8 @@ fn main() {
         // io::stdin().read_line 는 문자열 전달
         // & 는 참조 타입을 전달한다는 것 (메모리에[ 복사할 필요 없이 접근])
         // 변경 가능한 참조라 &mut
-        io::stdin().read_line(&mut guess)
+        io::stdin()
+            .read_line(&mut guess)
             // Result를 반환함 (enum)
             // Err 발생시 expect를 실행하고 종료
             // 없어도 실행은 됨 경고만 날뿐

@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-extern {
+extern "C" {
     // js_namespace는 console을 할당했다.
     // 즉 log만 쓰면 console.log가 된다.
     #[wasm_bindgen(js_namespace = console)]
@@ -31,7 +31,7 @@ fn rust() {
 // macro
 fn using_macro() {
     console_log!("Hello {}!", "yceffort");
-    console_log!("Hello yceffort"); 
+    console_log!("Hello yceffort");
 }
 
 // websys library
@@ -41,7 +41,7 @@ fn using_web_sys() {
     console::log_1(&"Hello using web-sys".into());
 
     let js: JsValue = 4.into();
-    
+
     console::log_2(&"Logging arbitrary values looks like".into(), &js);
 }
 

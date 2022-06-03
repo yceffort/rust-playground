@@ -8,7 +8,7 @@ extern "C" {
     // 클래스 정의
     type MyClass;
 
-    // 클래스에 new keyword를 constructor로 정의 
+    // 클래스에 new keyword를 constructor로 정의
     #[wasm_bindgen(constructor)]
     fn new() -> MyClass;
 
